@@ -3,6 +3,8 @@
 **2020101125**
 <br>
 
+This is a interactive shell shell program written in C language. The instructions to compile and run the shell are listed below, along with a list of the features/functionality of the shell.
+
 ## Compiling and Running the Shell
 
 run `make` to generate the executable
