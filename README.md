@@ -1,4 +1,4 @@
-## OS Assignment 2
+## OS Assignment 3
 #### Sneha Raghava Raju 
 **2020101125**
 <br>
@@ -6,7 +6,6 @@
 ## Compiling and Running the Shell
 
 run `make` to generate the executable
-
 run `./run` to run the shell
 
 Use the command `exit` to exit the shell
@@ -72,5 +71,43 @@ Implemented in **`main.c`**
 - Eg: `repeat 2 echo hello` will print 'hello' twice
 
 #### exit command
+Implemented in **`main.c`**
+
 - `exit` - exits the shell
+
+#### Input/Output redirection
+Implemented in **`redirection.c`**
+
+- Ouput of one command can be redirected to a file
+- Input can be taken from a file
+- Eg: `sort < file1.txt` 
+
+#### Piping
+Implemented in **`piping.c`**
+
+- Multiple commands can be piped
+- Pipes can also be combined with i/o redirection
+- Eg: `cat file1.txt | head -7 > output.txt`
+
+#### fg command
+Implemented in **`fg.c`**
+
+- `fg <job_number>` - brings a running or a stopped background job, with the given job number, to foreground
+
+#### bg command
+Implemented in **`bg.c`**
+
+- `bg <job_number>` - changes a stopped background job, with the given job number, to a running background job
+
+#### sig command
+Implemented in **`sig.c`**
+
+- `sig <job_number> <signal_number` - sends the signal corresponding to 'signal_number' to the job given by 'job_number'.
+
+#### Signals
+Implemented in **`main.c`**
+
+- `CTRL+C` - interupts any currently running foreground job
+- `CTRL+Z` - sends any currently running foreground job to the background.
+-  `CTRL+D` - logs out of the shell
 

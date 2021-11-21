@@ -2,11 +2,17 @@
 
 void foregroundProcess(char* token[])
 {
+    //printf("%s %s\n", token[0], token[1]);
+
     pid_t child_pid;
     int stats;
 
     //fork returns the pid of the child process that was created
     child_pid = fork();
+
+    //storing the fg process info
+    current_fg.pid = child_pid;
+    strcpy(current_fg.processName, token[0]);
 
     if(child_pid < 0)
     {

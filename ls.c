@@ -223,6 +223,7 @@ void execute_ls(char path[], int num_of_paths, int l_flag, int a_flag)
 
 void ls(char *token[], long long int arg_count)
 {
+    //printf("argcount: %lld  tok[0] %s  tok[1] %s  tok[2] %s\n", arg_count, token[0], token[1], token[2]);
 
     int l_flag = 0;
     int a_flag = 0;

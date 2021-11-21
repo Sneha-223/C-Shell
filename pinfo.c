@@ -13,7 +13,6 @@ void pinfo(char token[], long long int argcount)
         pid = getpid();
     }
 
-
     char statfilename[10000];
 
     sprintf(statfilename, "/proc/%d/stat", pid);

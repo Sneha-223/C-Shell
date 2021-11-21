@@ -14,6 +14,7 @@
 #include <time.h>
 #include <wait.h>
 #include <signal.h>
+#include <fcntl.h>
 
 #define MAX_INPUT_CMD 10000      //max length of input a user can enter for a comand
 #define MAX_TOKEN_NUM 10000
@@ -24,7 +25,21 @@
 char shell_root_dir[MAX_DIR_PATH];
 char prevDir[MAX_DIR_PATH];
 int exit_status;
+int numOfbgProcesses;
+int shellpid;
 
+struct bg_process
+{
+    char processName[100];
+    pid_t pid;
+    int status; //1 if running, 0 if terminated
+    int job_num;
+};
+
+struct bg_process bg_processes[MAX_NUM_OF_BG_PROCESSES];
+struct bg_process current_fg;
+
+//functions
 void shellPrompt();
 void input(char *input);
 void execute_command(char* token[], long long int arg_count);
@@ -38,7 +53,16 @@ int is_dir(char *path);
 int is_file(char *path);
 void foregroundProcess(char* token[]);
 void backgroundProcess(char *token[]);
+void handler(int sig);
 void pinfo(char token[], long long int arg_count);
 
+void redirection(char* token[], long long int arg_count, int redirection_flag, long long int redirection_position);
+int pipecheck(char *token[], long long int arg_count);
+void piping(char *token[], long long int arg_count);
+void jobs(char *token[], long long int arg_count);
+void sig(char *token[], long long int arg_count);
+void delete_process (int pid);
+void fg(char *token[], long long int arg_count);
+void bg(char *token[], long long int arg_count);
 
 #endif

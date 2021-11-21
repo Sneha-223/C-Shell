@@ -13,4 +13,6 @@ void echo(char *token[], long long int arg_count)
     }
 
     printf("%s\n", string);
+
+    return;
 }
